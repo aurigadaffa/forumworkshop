@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function(){
     return view('welcome');
-});
+})->name('login');
 
 /*** Auth ***/
 // Route::get('/login', 'Auth\AuthController@loginIndex')->name('login');

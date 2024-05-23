@@ -47,9 +47,11 @@ class LinkService
             $data = Link::find($id);
 
             $check = Link::where('id', '!=' , $data->id)->first();
-            if($check->sesi == $request->sesiEdit) {
-                Alert::error('Maaf', 'Sesi sudah dipakai');
-                return redirect()->back();
+            if($check != null){
+                if($check->sesi == $request->sesiEdit) {
+                    Alert::error('Maaf', 'Sesi sudah dipakai');
+                    return redirect()->back();
+                }
             }
 
             $data->update([
